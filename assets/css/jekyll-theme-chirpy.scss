@@ -1,0 +1,147 @@
+---
+---
+
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}';
+
+/* ===== Palette ===== */
+:root {
+  --dental-teal: #0f8b8d;
+  --dental-teal-dark: #0b6b6d;
+  --dental-ink: #1f2f33;
+  --dental-muted: #5b6b6f;
+  --dental-border: #e3e8e9;
+}
+
+/* ===== Backgrounds: all white ===== */
+html:not([data-mode]),
+html[data-mode='light'] {
+  --body-bg: #ffffff;
+  --main-wrapper-bg: #ffffff;
+  --topbar-bg: #ffffff;
+  --topbar-wrapper-bg: #ffffff;
+  --card-bg: #ffffff;
+  --sidebar-bg: #f3faf9;
+  --sidebar-active-color: var(--dental-teal);
+  --sidebar-hover-bg: #e6f4f2;
+  --link-color: var(--dental-teal);
+  --heading-color: var(--dental-ink);
+}
+
+body,
+#main-wrapper,
+#main-wrapper > .container,
+#topbar-wrapper,
+#topbar,
+#panel-wrapper,
+#tail-wrapper,
+footer {
+  background-color: #ffffff !important;
+}
+
+#sidebar {
+  background-color: #f3faf9 !important;
+}
+
+/* ===== Links ===== */
+a { color: var(--dental-teal); }
+a:hover { color: var(--dental-teal-dark); }
+
+/* ===== Cards (home tiles + post cards) ===== */
+.content a.quick-link-card,
+.content a.post-link-card {
+  display: block;
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 2px solid var(--dental-border) !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+  transform: none !important;
+  text-decoration: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover: full teal border + teal bar on the left edge.
+   The bar is an inset shadow, so the text never shifts. */
+.content a.quick-link-card:hover,
+.content a.post-link-card:hover {
+  background: #ffffff !important;
+  border: 2px solid var(--dental-teal) !important;
+  box-shadow: inset 3px 0 0 var(--dental-teal) !important;
+}
+
+/* Post card text */
+.post-link-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--dental-ink);
+  margin: 0 0 0.3rem;
+}
+.post-link-card:hover .post-link-title { color: var(--dental-teal); }
+
+.post-link-desc {
+  font-size: 0.95rem;
+  color: var(--dental-muted);
+  margin: 0 0 0.6rem;
+}
+.post-link-meta,
+.post-link-meta i {
+  font-size: 0.8rem;
+  color: var(--dental-muted);
+}
+
+/* Home tile text: dark at rest, teal on hover */
+.quick-link-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--dental-ink);
+}
+.content a.quick-link-card:hover .quick-link-title {
+  color: var(--dental-teal);
+}
+
+/* Icon stays teal in both states */
+.content a.quick-link-card i {
+  color: var(--dental-teal) !important;
+}
+
+/* ===== Post content headings ===== */
+.content h2,
+.content h3 {
+  color: var(--dental-teal);
+}
+.content h2 {
+  border-bottom: 2px solid var(--dental-border);
+  padding-bottom: 0.3rem;
+}
+.content img { border-radius: 6px; }
+
+/* ===== Sidebar ===== */
+#sidebar .site-title a,
+#sidebar .site-subtitle,
+#sidebar .nav-link,
+#sidebar .nav-link i,
+#sidebar .nav-link span,
+#sidebar .sidebar-bottom a,
+#sidebar .sidebar-bottom span {
+  color: var(--dental-ink) !important;
+}
+
+/* Hover and current page: teal */
+#sidebar .nav-link:hover,
+#sidebar .nav-link:hover i,
+#sidebar .nav-link:hover span,
+#sidebar .nav-link.active,
+#sidebar .nav-link.active i,
+#sidebar .nav-link.active span,
+#sidebar .sidebar-bottom a:hover {
+  color: var(--dental-teal) !important;
+}
+
+/* Thin edge so the sidebar separates cleanly from the white page */
+#sidebar {
+  border-right: 1px solid var(--dental-border);
+}

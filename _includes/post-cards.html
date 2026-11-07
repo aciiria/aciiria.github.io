@@ -1,0 +1,15 @@
+{% assign max = include.limit | default: 1000 %}
+<div class="post-cards mt-4">
+  {% for post in include.posts limit: max %}
+  <a href="{{ post.url | relative_url }}" class="post-link-card d-block px-4 py-3 mb-3">
+    <div class="post-link-title">{{ post.title }}</div>
+    <p class="post-link-desc">
+      {% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncatewords: 30 }}{% endif %}
+    </p>
+    <div class="post-link-meta">
+      <i class="far fa-calendar fa-fw me-1"></i><time>{{ post.date | date: "%b %d, %Y" }}</time>
+      <span class="ms-3"><i class="far fa-folder fa-fw me-1"></i>{{ post.categories[0] }}</span>
+    </div>
+  </a>
+  {% endfor %}
+</div>
