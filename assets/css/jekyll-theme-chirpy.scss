@@ -145,3 +145,9 @@ a:hover { color: var(--dental-teal-dark); }
 #sidebar {
   border-right: 1px solid var(--dental-border);
 }
+
+/* Hide Categories and Tags from the sidebar (pages still exist) */
+#sidebar .nav-item:has(a[href$="/categories/"]),
+#sidebar .nav-item:has(a[href$="/tags/"]) {
+  display: none;
+}
