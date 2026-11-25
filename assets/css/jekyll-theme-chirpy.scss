@@ -6,13 +6,16 @@
   .bundle
 {%- endif -%}';
 
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Monsieur+La+Doulaise&display=swap');
+
+/* ===== Palette ===== */
 /* ===== Palette ===== */
 :root {
-  --dental-teal: #0f8b8d;
-  --dental-teal-dark: #0b6b6d;
-  --dental-ink: #1f2f33;
-  --dental-muted: #5b6b6f;
-  --dental-border: #e3e8e9;
+  --dental-teal: #293b61;        /* navy accent */
+  --dental-teal-dark: #1c356b;   /* darker navy for link hover */
+  --dental-ink: #182848;         /* main dark text */
+  --dental-muted: #4f5767;       /* secondary text */
+  --dental-border: #accce6;      /* baby blue borders */
 }
 
 /* ===== Backgrounds: all white ===== */
@@ -150,4 +153,131 @@ a:hover { color: var(--dental-teal-dark); }
 #sidebar .nav-item:has(a[href$="/categories/"]),
 #sidebar .nav-item:has(a[href$="/tags/"]) {
   display: none;
+}
+
+/* ===== Fonts ===== */
+body,
+h1, h2, h3, h4, h5,
+input,
+button,
+#topbar-title,
+#sidebar .site-title,
+#sidebar .site-title a,
+#sidebar .site-subtitle,
+#sidebar .nav-link span,
+.quick-link-title,
+.post-link-title {
+  font-family: 'Libre Baskerville', serif !important;
+}
+
+
+/* ===== Floral background ===== */
+body {
+  background: transparent !important;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    #d8e2e7 url('../img/background3.jpg') center / cover no-repeat;
+}
+
+
+/* Let the image show through */
+#main-wrapper,
+#main-wrapper > .container,
+#panel-wrapper,
+#tail-wrapper,
+footer {
+  background-color: transparent !important;
+}
+
+/* Solid top bar to match */
+#topbar-wrapper,
+#topbar {
+  background-color: #e4ebef !important;
+}
+
+/* ===== Sidebar background ===== */
+#sidebar {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+    #dcecfb url('../img/sidebar2.jpg') center / cover no-repeat !important;
+}
+
+/* ===== Top bar matches background ===== */
+#topbar-wrapper {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    #d8e2e7 url('../img/background3.jpg') center / cover no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+#topbar {
+  background: transparent !important;
+}
+
+/* ===== Cards: drop shadow, no border ===== */
+.content a.quick-link-card,
+.content a.post-link-card {
+  border: none !important;
+  box-shadow: 0 6px 18px rgba(20, 33, 61, 0.15) !important;
+  transition: box-shadow 0.2s ease;
+}
+
+.content a.quick-link-card:hover,
+.content a.post-link-card:hover {
+  border: none !important;
+  box-shadow: 0 10px 28px rgba(20, 33, 61, 0.25) !important;
+}
+
+/* ===== Home cards: picture + bottom-left title ===== */
+.content a.quick-link-card[href*="research"],
+.content a.quick-link-card[href*="internship"] {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-end;     /* push title to bottom */
+  align-items: flex-start;       /* push title to left */
+  text-align: left !important;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 640 / 348;
+  padding: 1.25rem 1.0rem 0.4rem !important;  /* last number: lower = text further down */
+}
+
+/* Black gradient along the bottom only */
+.content a.quick-link-card[href*="research"] {
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0) 45%),
+    url('../img/research1.jpg') center / cover no-repeat !important;
+}
+
+.content a.quick-link-card[href*="internship"] {
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0) 45%),
+    url('../img/internship.jpg') center / cover no-repeat !important;
+}
+
+/* White title, including on hover */
+.content a.quick-link-card .quick-link-title,
+.content a.quick-link-card:hover .quick-link-title {
+  color: #ffffff !important;
+}
+
+/* Remove icons */
+.content a.quick-link-card i {
+  display: none !important;
+}
+
+/* Title */
+.content a.quick-link-card .quick-link-title {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2 !important;
+  text-align: left;
 }
